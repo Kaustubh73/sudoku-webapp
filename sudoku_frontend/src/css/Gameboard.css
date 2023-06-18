@@ -1,0 +1,100 @@
+.game-board {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.cell {
+    position: relative;
+  }
+
+.cell input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    /* border-radius: 4px; */
+}
+
+.cell input:focus {
+    outline: none;
+    border-color: #007bff;
+ }
+
+ .active {
+  background-color:#c9e2ff;
+  /* font-family: 'Times New Roman', Times, serif; */
+}
+.active-tile {
+  border-color: #007bff !important;
+  background-color: #8bc0fc ;
+}
+
+
+
+
+.initial-value {
+  font-weight: bold;
+}
+
+.user-value {
+  color: #303F9F;
+  font-weight: bold;
+}
+.cell:nth-child(3n+4),
+.cell:nth-child(1)
+{
+    border-left: 2px solid #000;
+}
+.cell:nth-child(9)
+{
+    border-right: 2px solid #000;
+}
+
+.row:nth-child(3n + 4),
+.row:nth-child(1) {
+    border-top: 2px solid #000;
+  }
+
+.row:nth-child(9) {
+    border-bottom: 2px solid #000;
+  }
+
+.menu {
+    padding: 20px;
+}
+
+.menu button {
+    margin: 5px;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.menu button:hover {
+    background-color: #f0f0f0;
+}
+ /* Remove the arrows from number input fields */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox-specific styles to hide the arrows */
+input[type="number"] {
+    -moz-appearance: textfield;
+  }
