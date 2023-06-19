@@ -41,7 +41,9 @@
   background-color: #8bc0fc ;
 }
 
-
+.invalid-cell {
+  color: red !important;
+}
 
 
 .initial-value {

@@ -16,4 +16,14 @@ class GenerateView(APIView):
         return Response(response_data)
 
 
-    
+class ValidateView(APIView):
+    def post(self, request):
+        board = request.data['board']
+        row = request.data['row']
+        col = request.data['col']
+        value = request.data['value']
+        
+        if (isValidMove(board, row, col, value)):
+            return Response({'valid': True})
+        else:
+            return Response({'valid': False})

@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from sudoku_api.views import GenerateView
+from sudoku_api.views import GenerateView, ValidateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/generate-sudoku/", GenerateView.as_view()),
+    path("api/validate-move", ValidateView.as_view()),
 ]
