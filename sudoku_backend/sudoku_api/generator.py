@@ -81,13 +81,13 @@ def makePuzzle(Board, level):
     Board_dup = Board.copy()
     nums_removed =[]
     if (level == 0):
-        nums = 36
+        nums = 35
     elif (level == 1):
-        nums = 46
+        nums = 40
     elif (level == 2):
-        nums = 52
+        nums = 45
     elif (level == 3):
-        nums = 60
+        nums = 50
       
     counter = 0
     while counter < 4:
@@ -109,8 +109,7 @@ def makePuzzle(Board, level):
         col = random.randint(6, 8)
         if (Board_dup[row][col] != 0):
             Board_dup[row][col] = 0
-            counter += 1  
-            
+            counter += 1          
     nums -= 12
     while counter < nums:
         row = random.randint(0,8)
@@ -128,7 +127,7 @@ def makePuzzle(Board, level):
     
     if len(solutions) == 1:
         return Board_dup
-    
+    print("Running")
     return makePuzzle(Board, level)
     
 def solveSudoku(Board, solutions):

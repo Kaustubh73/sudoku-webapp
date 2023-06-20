@@ -4,6 +4,7 @@
     justify-items: center;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
   
 .row {
@@ -40,7 +41,6 @@
   border-color: #007bff !important;
   background-color: #8bc0fc ;
 }
-
 .invalid-cell {
   color: red !important;
 }
@@ -74,7 +74,12 @@
   }
 
 .menu {
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu button {
@@ -84,10 +89,99 @@
     padding: 10px;
     font-size: 20px;
     border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .menu button:hover {
-    background-color: #f0f0f0;
+  background-color: #e0e0e0;
+}
+
+.difficulty-select button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #007bff;
+  background-color: #007bff;
+  color: #fff;
+}
+
+
+.difficulty-select {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.difficulty-select h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.difficulty-select button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.sudoku-board-win, .sudoku-board-lose{
+  filter: brightness(0.5);
+  transition: filter 0.5s ease-in-out;
+}
+.win-overlay, .wrong-limit-screen{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+
+.game-over-message {
+  filter:opacity(0.8);
+  background-color: white;
+  width: 292px;
+  color: red;
+  font-weight: bolder;
+}
+.game-over-message p {
+  width: 300px;
+  font-size: 20px;
+  /* color:  !important; */
+  /* font-weight: bold !important; */
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.timer-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.counters {
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+.counters p {
+  padding-left: 50px;
+  font-weight: bold;
+  padding-right: 50px;
+}
+.win-message {
+  width:300px;
+  color: green;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
  /* Remove the arrows from number input fields */
 input[type="number"]::-webkit-inner-spin-button,

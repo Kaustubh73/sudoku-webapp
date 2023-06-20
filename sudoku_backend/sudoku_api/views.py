@@ -5,14 +5,15 @@ import numpy as np
 from sudoku_api.generator import *
 # Create your views here.
 class GenerateView(APIView):
-    def get(self, request):
+    def post(self, request):
+        difficulty = request.data['difficulty']
         Board = np.zeros((9,9), int)
         Sudoku(Board)
-        puzzle = makePuzzle(Board, 0)
+        puzzle = makePuzzle(Board, difficulty)
         response_data = {
+            'completed': Board,
             'puzzle': puzzle,
         }
-        
         return Response(response_data)
 
 
