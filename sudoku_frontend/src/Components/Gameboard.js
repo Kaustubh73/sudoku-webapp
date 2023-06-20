@@ -23,11 +23,10 @@ const GameBoard = () => {
   const [invalidCells, setInvalidCells] = useState([]);
   const [isCompleted, setIsCompleted] = useState(false);
   const [started, setStarted] = useState(false);
-  const [isSet, setIsSet] = useState(false);
   const [difficulty, setDifficulty] = useState(0); 
   const [isGameCompleted, setGameCompleted] = useState(false);
   const [wrongCounter, setWrongCounter] = useState(0);
-  const [hints, setHints] = useState(50);
+  const [hints, setHints] = useState(3);
   const [completeBoard, setCompleteBoard] = useState(initialBoard);
   const [timer, setTimer] = useState(0);
   const [lastTimer, setLastTimer] = useState(0);
@@ -59,32 +58,6 @@ const GameBoard = () => {
     )(); 
   }, [difficulty]);
   
-  // const printBoard = async (difficulty) => {
-  //   (
-  //     async () => {
-  //       try {
-  //       const response = await fetch('http://localhost:8000/api/generate-sudoku', {
-  //           method: 'POST',
-  //           headers: {'Content-Type': 'application/json'},
-  //           credentials: 'include',
-  //           body: JSON.stringify({
-  //             difficulty
-  //         })
-  //       });
-  //       const content = await response.json();
-  //       try {
-  //           setInitialBoard(content.puzzle);
-  //           setBoard(content.puzzle);
-  //           setIsSet(true);
-  //       } catch {
-  //           console.error('Error fetching board');
-  //       }
-  //     } catch (error) {
-  //           console.error(error);
-  //     }
-  //   }
-  //   )(); 
-  // }
   const validateMove = async (row, col, value, board) => {
     try {
       const response = await fetch('http://localhost:8000/api/validate-move', {
@@ -259,7 +232,6 @@ const GameBoard = () => {
     setTimer(0);
     setHints(3);
     setStarted(false);
-    console.log(difficulty);
   }
 
   useEffect(() => {
@@ -281,7 +253,6 @@ const GameBoard = () => {
 
   useEffect(() => {
     if (isCompleted && invalidCells.length === 0) {
-      setIsSet(false);
       setGameCompleted(true);
       setLastTimer(timer);
       setTimer(0);
@@ -348,7 +319,6 @@ const GameBoard = () => {
         {board.map((row, rowIndex) => (
           <div key={rowIndex} className="row">
             {row.map((cell, colIndex) => {
-                const isActiveTile = activeTile.row === rowIndex && activeTile.col === colIndex;
                 const isInvalidCell = invalidCells.some(
                   (invalidCell) => invalidCell.row === rowIndex && invalidCell.col === colIndex
                 );
