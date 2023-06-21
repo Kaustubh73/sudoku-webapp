@@ -3,7 +3,7 @@ This repo is my project for the game Sudoku which is built using React, Django, 
 
 This project has been divided into two components :
 1. Frontend [sudoku_frontend]
-2. Backednd [sudoku_backend]
+2. Backend [sudoku_backend]
 
 The First step is to fork the repo and get it in your Github repositories and then clone the repo to your local environment.
 ## Backend
